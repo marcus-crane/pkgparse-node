@@ -7,7 +7,7 @@ class Watson extends Component {
   render() {
     return (
       <div>
-        <Header tagline={"Let me search so you don't have to!"} />
+        <Header tagline={"Let me search so you don't have to"} />
         <Submission />
         <Results />
       </div>
