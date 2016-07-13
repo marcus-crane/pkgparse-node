@@ -1,4 +1,6 @@
-#! usr/bin/env node
+#!/usr/bin/env node
+// The above line is what makes it executable
+
 var getDependencies = require('./lib/getDependencies')
 var dependencyLookup = require('./lib/dependencyLookup')
 
