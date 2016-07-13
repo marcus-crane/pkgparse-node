@@ -1,3 +1,4 @@
+#! usr/bin/env node
 var getDependencies = require('./lib/getDependencies')
 var dependencyLookup = require('./lib/dependencyLookup')
 

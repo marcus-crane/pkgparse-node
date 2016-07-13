@@ -1,10 +1,13 @@
 {
-  "name": "watson",
-  "version": "1.0.0",
-  "description": "Watson",
+  "name": "pkgparse",
+  "version": "1.0.2",
+  "description": "A simple module for searching packages by name or importing a package.json",
   "main": "app.js",
   "scripts": {
     "start": "node app"
+  },
+  "bin": {
+    "pkgparse": "app.js"
   },
   "repository": {
     "type": "git",
