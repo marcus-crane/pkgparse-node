@@ -7,7 +7,7 @@ var dependencyLookup = require('./lib/dependencyLookup')
 // Here is where we're going to be able to give a module name and get its dependencies
 switch(process.argv[2]) {
   case '-f':
-    var fileLocation = (__dirname + "/package.json")
+    var fileLocation = (process.cwd() + "/package.json")
     break
   case '-s':
     var moduleInput = process.argv[3]
