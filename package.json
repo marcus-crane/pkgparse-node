@@ -1,6 +1,6 @@
 {
   "name": "pkgparse",
-  "version": "1.0.9",
+  "version": "1.1.1",
   "description": "A simple module for searching packages by name or importing a package.json",
   "main": "app.js",
   "scripts": {
