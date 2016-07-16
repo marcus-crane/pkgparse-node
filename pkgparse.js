@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 var getDependencies = require('./lib/getDependencies')
+var moduleLookup = require('./lib/moduleLookup')
 var dependencyLookup = require('./lib/dependencyLookup')
 var program = require('commander')
 var chalk = require('chalk')
@@ -11,6 +12,7 @@ program
   .usage('[flag] <options>')
   .option('-f --file [path]', 'scan package.json in current directory or in a specified location.')
   .option('-s --search [name]', 'search for a specific module')
+  .option('-d --dependencies [name]', 'check the dependencies of a module')
   .parse(process.argv)
 
 if (program.file && program.search) {
@@ -32,7 +34,7 @@ if (program.file && program.rawArgs[3]) {
 }
 
 if (program.search) {
-  dependencyLookup([program.search])
+  moduleLookup([program.search])
 }
 
 if (program.search && program.rawArgs[3] === 'pkgparse') {
@@ -41,6 +43,10 @@ if (program.search && program.rawArgs[3] === 'pkgparse') {
 
 if (program.search && !program.rawArgs[3]) {
   program.help()
+}
+
+if (program.dependencies) {
+  dependencyLookup([program.dependencies])
 }
 
 if (!program.rawArgs[2]) {
