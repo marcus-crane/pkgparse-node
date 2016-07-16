@@ -23,7 +23,7 @@ if (program.file && program.search) {
 }
 
 if (program.file) {
-  getDependencies(process.cwd() + "/test.json")
+  getDependencies(process.cwd() + "/package.json")
 }
 
 if (program.file && program.rawArgs[3]) {
@@ -35,6 +35,14 @@ if (program.search) {
   dependencyLookup([program.search])
 }
 
+if (program.search && program.rawArgs[3] === 'pkgparse') {
+  console.log(chalk.cyan("currentuser => The human operating this program. Sneaky enough to know about recursion."))
+}
+
 if (program.search && !program.rawArgs[3]) {
+  program.help()
+}
+
+if (!program.rawArgs[2]) {
   program.help()
 }
