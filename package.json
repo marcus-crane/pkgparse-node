@@ -1,13 +1,13 @@
 {
   "name": "pkgparse",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A simple module for searching packages by name or importing a package.json",
   "main": "app.js",
   "scripts": {
-    "start": "node app"
+    "start": "node pkgparse"
   },
   "bin": {
-    "pkgparse": "app.js"
+    "pkgparse": "pkgparse.js"
   },
   "repository": {
     "type": "git",
