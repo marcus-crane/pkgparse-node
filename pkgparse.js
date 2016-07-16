@@ -9,12 +9,8 @@ program
   .version('0.1.0')
   .description('pkgparse is a tiny program for finding out info about node modules')
   .usage('[flag] <options>')
-  .option('-f --file', 'scan package.json in current working directory.')
+  .option('-f --file [path]', 'scan package.json in current directory or in a specified location.')
   .option('-s --search [name]', 'search for a specific module')
-  .action(function (flag, name) {
-    flagValue = flag
-    nameValue = name
-  })
   .parse(process.argv)
 
 if (program.file && program.search) {
