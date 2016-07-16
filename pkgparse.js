@@ -22,13 +22,17 @@ if (program.file && program.search) {
   process.exit(1)
 }
 
-if (program.file) {
+if (program.file && !program.rawArgs[3]) {
   getDependencies(process.cwd() + "/package.json")
 }
 
 if (program.file && program.rawArgs[3]) {
-  console.log(chalk.yellow("The -f flag doesn't accept arguments (yet)"))
-  process.exit(1)
+  if (program.rawArgs[3].charAt(0) == '~') {
+    var dirpath = program.rawArgs[3].slice(1)
+    getDependencies(process.env.HOME + dirpath)
+  } else {
+    getDependencies(program.rawArgs[3])
+  }
 }
 
 if (program.search) {
@@ -36,7 +40,7 @@ if (program.search) {
 }
 
 if (program.search && program.rawArgs[3] === 'pkgparse') {
-  console.log(chalk.cyan("currentuser => The human operating this program. Sneaky enough to know about recursion."))
+  console.log(chalk.yellow("currentuser => The human operating this program. Sneaky enough to know about recursion."))
 }
 
 if (program.search && !program.rawArgs[3]) {
