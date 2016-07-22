@@ -22,5 +22,8 @@
     "promise": "^7.1.1",
     "superagent": "^2.0.0",
     "superagent-promise": "^1.1.0"
+  },
+  "devDependencies": {
+    "tape": "^4.6.0"
   }
 }

@@ -45,8 +45,12 @@ if (program.search && !program.rawArgs[3]) {
   program.help()
 }
 
-if (program.dependencies) {
+if (program.dependencies && program.rawArgs[3]) {
   dependencyLookup([program.dependencies])
+}
+
+if (program.dependencies && !program.rawArgs[3]) {
+  program.help()
 }
 
 if (!program.rawArgs[2]) {
