@@ -26,5 +26,32 @@
   },
   "devDependencies": {
     "tape": "^4.6.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/marcus-crane/pkgparse/issues"
+  },
+  "keywords": [
+    "npm",
+    "cli",
+    "packages",
+    "package",
+    "pkg",
+    "parse",
+    "parser",
+    "parsing",
+    "package.json",
+    "packagejson",
+    "validation",
+    "names",
+    "search",
+    "check",
+    "dependencies",
+    "dependants",
+    "dependency",
+    "open",
+    "dev",
+    "dependencies",
+    "dev",
+    "dependency"
+  ]
 }
