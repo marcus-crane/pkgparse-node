@@ -13,11 +13,13 @@ npm install pkgparse -g
 
 ## What does it do?
 
-* It can search any module name you give it and return its description.
+* You can search for an NPM module by name and receive back a super brief overview of what it does.
 
-* It can also search any module name and return its dependencies.
+* You can search for a module and receive back a list of the dependencies that it relies on.
 
 * You can feed it a package.json file and it will parse it, returning brief descriptions of each valid dependency.
+
+* You can enter a package name to have pkgparse open its npm page in your favourite browser (or specify one!)
 
 ## How do you use it?
 
@@ -97,6 +99,26 @@ Dev Dependencies
 ↳ tap
 ↳ tap-parser
 ```
+
+### Open the NPM page of a module
+
+```sh
+pkgparse -o chalk
+```
+
+Running the command by itself will open, in this case http://npmjs.org/package/chalk, in your default browser
+
+"But how can I open a page in a specific browser?!?"
+
+```sh
+pkgparse -o tap-spec firefox
+```
+
+Thought I'd forget, didn't you? The above case uses firefox but you can swap it out for any browser. Well, you can actually use any application you like but I won't be responsible if your favourite website won't open in VLC or causes a meltdown when you try to open it with Spotify.
+
+Case sensitivity doesn't matter much but **multi-word names** like `Google Chrome` **MUST** be entered in quotes!
+
+If you don't, pkgparse will interpret `Google` and `Chrome` as two separate arguments resulting in nothing happening (until I add some sort of feedback/error string)
 
 ## Why?
 
