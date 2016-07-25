@@ -3,6 +3,8 @@ Pkgparse -- a small NPM searching module
 
 Here's the basics of how to use my tiny project:
 
+[![Build Status](https://travis-ci.org/marcus-crane/pkgparse.svg?branch=master)](https://travis-ci.org/marcus-crane/pkgparse)
+
 ## Installing
 
 Assuming you have Node installed, plug the following into your terminal to install it globally. This will allow you to run the program anywhere on your system.
