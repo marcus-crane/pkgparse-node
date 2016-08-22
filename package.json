@@ -1,6 +1,6 @@
 {
   "name": "pkgparse",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "A simple module for searching packages by name or importing a package.json",
   "main": "pkgparse.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "url": "git+https://github.com/marcus-crane/pkgparse.git"
   },
   "author": "Marcus <marcus@thingsima.de>",
-  "license": "MIT",
+  "license": "TIM",
   "homepage": "https://github.com/marcus-crane/pkgparse#readme",
   "dependencies": {
     "chalk": "^1.1.3",
