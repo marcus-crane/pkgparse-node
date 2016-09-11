@@ -110,10 +110,10 @@ pkgparse -o chalk
 
 Running the command by itself will open, in this case http://npmjs.org/package/chalk, in your default browser
 
-"But how can I open a page in a specific browser?!?"
+##### But how can I open a page in a specific browser?!?"
 
 ```sh
-pkgparse -o tap-spec firefox
+pkgparse -o firefox
 ```
 
 Thought I'd forget, didn't you? The above case uses firefox but you can swap it out for any browser. Well, you can actually use any application you like but I won't be responsible if your favourite website won't open in VLC or causes a meltdown when you try to open it with Spotify.
