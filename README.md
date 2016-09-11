@@ -4,6 +4,10 @@ Pkgparse -- a small NPM searching module
 Here's the basics of how to use my tiny project:
 
 [![Build Status](https://travis-ci.org/marcus-crane/pkgparse.svg?branch=master)](https://travis-ci.org/marcus-crane/pkgparse)
+[![Package Quality](http://npm.packagequality.com/shield/pkgparse.svg)](http://npm.packagequality.com/shield/pkgparse.svg)
+[![npm version](https://badge.fury.io/js/pkgparse.svg)](https://badge.fury.io/js/pkgparse)
+[![License](https://img.shields.io/badge/license-TIM-28BCCE.svg)](https://img.shields.io/badge/license-TIM-28BCCE.svg)
+
 
 ## Installing
 
@@ -110,7 +114,7 @@ pkgparse -o chalk
 
 Running the command by itself will open, in this case http://npmjs.org/package/chalk, in your default browser
 
-##### But how can I open a page in a specific browser?!?"
+### But how can I open a page in a specific browser?!?"
 
 ```sh
 pkgparse -o firefox
@@ -132,4 +136,4 @@ Here's what you're looking for: https://nodejs.org/en/
 
 ## Feedback / Feature Requests
 
-If you'd like to suggest a feature or report a bunch, feel free to add it via Github at https://github.com/marcus-crane/pkgparse or send me an email at <a href="mailto:pkgparse@thingsima.de">pkgparse@thingsima.de</a>
+If you'd like to suggest a feature or report a bunch, feel free to add it via [Github](https://github.com/marcus-crane/pkgparse) or fire a tweet to [@ethernetsalad](http://twitter.com/ethernetsalad).
