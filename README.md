@@ -17,6 +17,12 @@ Assuming you have Node installed, plug the following into your terminal to insta
 npm install pkgparse -g
 ```
 
+or if you're running [Yarn](https://yarnpkg.com) from Facebook, you can install pkgparse like so:
+
+```sh
+yarn global add pkgparse
+```
+
 ## What does it do?
 
 * You can search for an NPM module by name and receive back a super brief overview of what it does.
@@ -46,7 +52,7 @@ pkgparse -f "~/Development/0050_pkgparse/package.json"
 The output of -f would look similar to the following:
 
 ```sh
-Parsing package from /Users/Sentry/Development/0050_pkgparse/package.json
+Parsing package from /Users/Sentry/Code/Node/pkgparse/package.json
 
 ↳ promise => Bare bones Promises/A+ implementation
 ↳ commander => the complete solution for node.js command-line programs
