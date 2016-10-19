@@ -14,7 +14,7 @@
     "url": "git+https://github.com/marcus-crane/pkgparse.git"
   },
   "author": "Marcus <marcus@thingsima.de>",
-  "license": "TIM",
+  "license": "MIT",
   "homepage": "https://github.com/marcus-crane/pkgparse#readme",
   "dependencies": {
     "chalk": "^1.1.3",
