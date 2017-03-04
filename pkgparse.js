@@ -11,8 +11,9 @@ prog
     })
 
     .command('feast', 'Search run against an entire package.json')
+    //.option('<path>', 'Location of a package.json file to parse')
     .action((args, options, logger) => {
-        parseMenu('feast')
+        parseMenu('feast', args)
     })
 
     .command('deps', 'Fetch the dependencies that make up a module')
@@ -23,9 +24,14 @@ prog
 
     .command('open', 'Go straight to the NPM page for a module')
     .argument('<module>', 'The name of the module to navigate to')
-    .argument('<app>', 'Name of a browser to view the NPM page in')
     .action((args, options, logger) => {
         parseMenu('open', args)
+    })
+
+    .command('gh', 'Go straight to the Github page for a module if it exists')
+    .argument('<module>', 'The name of the module to visit on Github')
+    .action((args, options, logger) => {
+        parseMenu('github', args)
     })
 
 prog.parse(process.argv)
