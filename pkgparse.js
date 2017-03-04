@@ -1,79 +1,37 @@
-#!/usr/bin/env node
+const prog = require('caporal')
+const parseMenu = require('./lib/parseMenu')
 
-var getDependencies = require('./lib/getDependencies')
-var moduleLookup = require('./lib/moduleLookup')
-var dependencyLookup = require('./lib/dependencyLookup')
-var visitNPM = require('./lib/visitNPM')
-var examples = require('./lib/examples')
-var program = require('commander')
-var chalk = require('chalk')
+prog
+    .version('2.0.0')
 
-program
-  .version('0.2.0')
-  .description('pkgparse is a tiny program for finding out info about node modules')
-  .usage('[flag] <options>')
-  .option('-f --file [path]', 'scan package.json in the current directory or in a specified location\n')
-  .option('-s --search [name]', 'search for a specific module')
-  .option('-d --dependencies [name]', 'check the dependencies of a module')
-  .option('-o --open [name] [browser]', 'visit npm page of specified module with program/browser\n')
-  .option('-e --examples', 'still stuck? check out my handy list of examples')
-  .parse(process.argv)
+    .command('search', 'Get a brief description of what a module does')
+    .argument('<module>', 'Module name to look up')
+    .action((args, options) => {
+        parseMenu('search', args)
+    })
 
-if (program.examples) {
-  examples()
-}
+    .command('feast', 'Search applied to an entire package.json or module')
+    .option('--module <name>', 'Provide a dependency name to see what it\'s made from')
+    .action((args, options) => {
+        parseMenu('feast', options)
+    })
 
-  // User invokes a flag and successfully passes in parameters
+    // .command('deps', 'Fetch the dependencies that make up a module')
+    // .argument('<module>', 'pkgparse will check what dependencies make up this module')
+    // .action((args, options) => {
+    //     parseMenu('deps', args)
+    // })
 
-if (program.file && program.search) {
-  console.log(chalk.yellow("Running file and search together does nothing. Nice try though!"))
-  process.exit(1)
-}
+    .command('open', 'Go straight to the NPM page for a module')
+    .argument('<module>', 'The name of the module to navigate to')
+    .action((args, options) => {
+        parseMenu('open', args)
+    })
 
-if (program.file && !program.rawArgs[3]) {
-  getDependencies(process.cwd() + "/package.json")
-}
+    .command('gh', 'Go straight to the Github page for a module')
+    .argument('<module>', 'The name of the module to visit on Github')
+    .action((args, options) => {
+        parseMenu('github', args)
+    })
 
-if (program.file && program.rawArgs[3]) {
-  if (program.rawArgs[3].charAt(0) == '~') {
-    var dirpath = program.rawArgs[3].slice(1)
-    getDependencies(process.env.HOME + dirpath)
-  } else {
-    getDependencies(program.rawArgs[3])
-  }
-}
-
-if (program.search) {
-  moduleLookup([program.search])
-}
-
-if (program.search && program.rawArgs[3] === 'pkgparse') {
-  console.log(chalk.yellow("currentuser => The human operating this program. Sneaky enough to know about recursion."))
-}
-
-if (program.dependencies && program.rawArgs[3]) {
-  dependencyLookup([program.dependencies])
-}
-
-if (program.open && program.rawArgs[3]) {
-  visitNPM([program.open], program.rawArgs[4])
-  process.exit(1)
-}
-
-// User invokes a flag without any parameters
-
-if (program.search && !program.rawArgs[3]) {
-  program.help()
-}
-
-if (program.dependencies && !program.rawArgs[3]) {
-  program.help()
-}
-
-if (program.open && !program.rawArgs[3]) {
-  program.help()
-}
-
-if (!program.rawArgs[2]) {
-  program.help()
-}
+prog.parse(process.argv)
