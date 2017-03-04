@@ -16,12 +16,6 @@ prog
         parseMenu('feast', options)
     })
 
-    // .command('deps', 'Fetch the dependencies that make up a module')
-    // .argument('<module>', 'pkgparse will check what dependencies make up this module')
-    // .action((args, options) => {
-    //     parseMenu('deps', args)
-    // })
-
     .command('open', 'Go straight to the NPM page for a module')
     .argument('<module>', 'The name of the module to navigate to')
     .action((args, options) => {
