@@ -22,7 +22,6 @@
     "chalk": "^1.1.3",
     "opn": "^4.0.2"
   },
-  "devDependencies": {},
   "bugs": {
     "url": "https://github.com/marcus-crane/pkgparse/issues"
   },
