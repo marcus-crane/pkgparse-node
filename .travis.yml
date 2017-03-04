@@ -1,7 +1,5 @@
 language: node_js
 node_js:
-  - "6.1"
+  - "latest"
   - "6"
-  - "5.11"
   - "5"
-  - "4.0"
