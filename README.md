@@ -1,145 +1,138 @@
-Pkgparse -- a small NPM searching module
-===================
+# Pkgparse
+###### A tiny NPM searching CLI
 
-Here's the basics of how to use my tiny project:
-
-[![Build Status](https://travis-ci.org/marcus-crane/pkgparse.svg?branch=master)](https://travis-ci.org/marcus-crane/pkgparse)
-[![Package Quality](http://npm.packagequality.com/shield/pkgparse.svg)](http://npm.packagequality.com/shield/pkgparse.svg)
 [![npm version](https://badge.fury.io/js/pkgparse.svg)](https://badge.fury.io/js/pkgparse)
-[![License](https://img.shields.io/badge/license-TIM-28BCCE.svg)](https://img.shields.io/badge/license-TIM-28BCCE.svg)
+[![License](https://img.shields.io/badge/license-MIT-28BCCE.svg)](https://img.shields.io/badge/license-MIT-28BCCE.svg)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/marcus-crane/pkgparse/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/marcus-crane/pkgparse/?branch=master)
 
+## Table of Contents
+1. [What does it do?](#what-does-it-do)
+1. [How do I install it?](#how-do-i-install-it)
+1. [How do I use it?](#how-do-i-use-it)
+    1. [Searching for a module](#searching-for-a-module)
+    1. [Consuming a package.json file](#consuming-a-package.json-file)
+    1. [Consuming the package.json of a remote module](#consuming-the-package.json-of-a-remote-module)
+    1. [Jump to the NPM page of a module](#jump-to-the-npm-page-of-a-module)
+    1. [Jump to the Github page of a module](#jump-to-the-github-page-of-a-module)
+1. [I found a bug](#i-found-a-bug)
+1. [I want to request a feature](#i-want-to-request-a-feature)
 
-## Installing
+## What does pkgparse do?
 
-Assuming you have Node installed, plug the following into your terminal to install it globally. This will allow you to run the program anywhere on your system.
+You can
+
+* search for an NPM module by name and receive its description
+
+* feed it a package.json and receive descriptions of each valid dependency
+
+* search for an NPM module and get back a list of its dependencies
+
+* quickly navigate to a module's npm page or github repo (if it exists) in your default browser
+
+# How do I install it?
+
+Like most Node packages, it's available via NPM for whatever flavour of device you're on.
+
+Simply run a global install using your terminal and you're good to go!
 
 ```sh
 npm install pkgparse -g
 ```
 
-or if you're running [Yarn](https://yarnpkg.com) from Facebook, you can install pkgparse like so:
+If you're a cool kid using [Yarn](https://yarnpkg.com/) then simply just use yarn as you would
 
 ```sh
 yarn global add pkgparse
 ```
 
-## What does it do?
+# How do I use it?
 
-* You can search for an NPM module by name and receive back a super brief overview of what it does.
+You've got a few options to play with
 
-* You can search for a module and receive back a list of the dependencies that it relies on.
+## Searching for a module
 
-* You can feed it a package.json file and it will parse it, returning brief descriptions of each valid dependency.
+You can use the search function to look up an NPM module and receive back its description field, if it exists.
 
-* You can enter a package name to have pkgparse open its npm page in your favourite browser (or specify one!)
+I find it handy for a super brief overview if I see a module name without wanting to trawl through too much documentation.
 
-## How do you use it?
+That said, it's only as good as the author makes their description!
 
-### Parsing a package.json file
+You can use it by passing it the name of a module. Let's say you keep hearing about [rethinkdbdash](https://www.npmjs.com/package/rethinkdbdash) but you still don't know what it does
 
-You can use -f to fetch the package.json file in your current working directory.
-
-```sh
-pkgparse -f
+```
+// pkgparse search rethinkdbdash
+↳ rethinkdbdash => A Node.js driver for RethinkDB with promises and a connection pool
 ```
 
-Alternatively, you can feed in a package.json file from anywhere on your computer like so
+## Consuming a package.json file
 
-```sh
-pkgparse -f "~/Development/0050_pkgparse/package.json"
+This is probably my favourite feature and the main reason I started building this tool in the first place.
+
+It's basically just the search feature but applied to each dependency in a package.json file.
+
+I found it useful while doing Node test exercises and wondering what half the dependencies even do.
+
+It can also be used on cloned repos to get a quick overview of what its dependencies are (and actually do) without having to search up each one.
+
+Here's what it looks like applied to pkgparse itself:
+
 ```
-
-The output of -f would look similar to the following:
-
-```sh
-Parsing package from /Users/Sentry/Code/Node/pkgparse/package.json
-
-↳ promise => Bare bones Promises/A+ implementation
-↳ commander => the complete solution for node.js command-line programs
-↳ superagent-promise => superagent promise wrapper
-↳ superagent => elegant & feature rich browser / node HTTP with a fluent API
+// pkgparse feast (while in same folder as the repo)
+↳ opn => A better node-open. Opens stuff like websites, files, executables. Cross-platform.
 ↳ chalk => Terminal string styling done right. Much color.
+↳ caporal => A full-featured framework for building command line applications (cli) with node.js
+↳ axios => Promise based HTTP client for the browser and node.js
 ```
 
-Just a note: Entering ~ as a substitute for your root directory doesn't work 'out of the box' with Node so what it does is swap out ~ for whatever your process.env.HOME variable is: On OS X for example, this would be `/Users/username/`
+Now you know exactly what each of the four dependencies that make up pkgparse do in less than 5 seconds (excluding reading time and/or internet outages)
 
-### Searching for a specific module
+## Consuming the package.json of a remote module
 
-You can use -s followed by the name of a module to return a brief overview on what it does.
+The feast function would a pain in the butt if you had to clone your favourite modules just to see what they're made of so it also comes with an optional argument for parsing modules on NPM.
 
-```sh
-pkgparse -s express
+Let's see what [create-react-app](https://www.npmjs.com/package/create-react-app) is made out of
+
+```
+// pkgparse feast --module create-react-app
+create-react-app is made of...
+↳ validate-npm-package-name => Give me a string and I'll tell you if it's a valid npm package name
+↳ chalk => Terminal string styling done right. Much color.
+↳ cross-spawn => Cross platform child_process#spawn and child_process#spawnSync
+↳ commander => the complete solution for node.js command-line programs
+↳ semver => The semantic version parser used by npm.
+↳ fs-extra => fs-extra contains methods that aren't included in the vanilla Node.js fs package. Such as mkdir -p, cp -r, and rm -rf.
 ```
 
-The resulting output would look like this:
+Neat, I find this feature useful for learning about new modules myself.
 
-```sh
-↳ express => Fast, unopinionated, minimalist web framework
+Heck, I could have used that [validate-npm-package-name](https://www.npmjs.com/package/validate-npm-package-name) module in pkgparse itself but ah well, it's fast enough as it is.
+
+## Jump to the NPM page of a module
+
+This feature and the next are mainly just handy shortcuts for myself but you might get some use out of them too!
+
+```
+// pkgparse open express
+[opens https://www.npmjs.com/package/express in your default browser]
 ```
 
-### Searching for the dependencies of a module
+## Jump to the Github page of a module
 
-Just slap -d followed by the name of a module like so:
+Pretty much the same deal as the open command but goes to Github instead
 
-```sh
-pkgparse -d tape
+```
+// pkgparse gh express
+[opens https://github.com/expressjs/express in your default browser]
 ```
 
-What would that look like you ask? Check this out:
+# I found a bug
 
-```sh
-tape
-----
-Dependencies
-↳ deep-equal
-↳ defined
-↳ function-bind
-↳ glob
-↳ has
-↳ inherits
-↳ minimist
-↳ object-inspect
-↳ resolve
-↳ resumer
-↳ string.prototype.trim
-↳ through
+Feel free to report it under the [Issues](https://github.com/marcus-crane/pkgparse/issues) tab, using the bug label, and I'll see what I can figure out.
 
-Dev Dependencies
-↳ concat-stream
-↳ falafel
-↳ js-yaml
-↳ tap
-↳ tap-parser
-```
+# I want to request a feature
 
-### Open the NPM page of a module
+Well, it's not really that kind of project but you're welcome to suggest stuff under the [Issues](https://github.com/marcus-crane/pkgparse/issues) by using the enhancement label.
 
-```sh
-pkgparse -o chalk
-```
+You're always welcome to write additional features yourself via a pull request. All you really need to do is plug your function into the `parseMenu.js` file and a brief menu entry under `pkgparse.js`
 
-Running the command by itself will open, in this case http://npmjs.org/package/chalk, in your default browser
-
-### But how can I open a page in a specific browser?!?"
-
-```sh
-pkgparse -o firefox
-```
-
-Thought I'd forget, didn't you? The above case uses firefox but you can swap it out for any browser. Well, you can actually use any application you like but I won't be responsible if your favourite website won't open in VLC or causes a meltdown when you try to open it with Spotify.
-
-Case sensitivity doesn't matter much but **multi-word names** like `Google Chrome` **MUST** be entered in quotes!
-
-If you don't, pkgparse will interpret `Google` and `Chrome` as two separate arguments resulting in nothing happening (until I add some sort of feedback/error string)
-
-## Why?
-
-Learning! I wanted to figure out how to write a super basic CLI application using Javascript. It's a neat tool to hack away at here and there but don't expect super clean code from a pro or anything. Personally, I like using it so perhaps you might find it useful too!
-
-## What is this Node thing? Where am I? What is an NPM?
-
-Here's what you're looking for: https://nodejs.org/en/
-
-## Feedback / Feature Requests
-
-If you'd like to suggest a feature or report a bunch, feel free to add it via [Github](https://github.com/marcus-crane/pkgparse) or fire a tweet to [@ethernetsalad](http://twitter.com/ethernetsalad).
+You can even just modify your own fork and install it using `npm install <your github name>/pkgparse -g`. That said, I'll consider any upstream pushes too.
