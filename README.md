@@ -1,4 +1,4 @@
-# Pkgparse
+# pkgparse
 
 A tiny NPM searching CLI
 
@@ -8,16 +8,16 @@ A tiny NPM searching CLI
 
 ## Table of Contents
 
-1. [What does it do?](#what-does-it-do)
-1. [How do I install it?](#how-do-i-install-it)
-1. [How do I use it?](#how-do-i-use-it)
-    1. [Searching for a module](#searching-for-a-module)
-    1. [Consuming a package.json file](#consuming-a-package.json-file)
-    1. [Consuming the package.json of a remote module](#consuming-the-package.json-of-a-remote-module)
-    1. [Jump to the NPM page of a module](#jump-to-the-npm-page-of-a-module)
-    1. [Jump to the Github page of a module](#jump-to-the-github-page-of-a-module)
-1. [I found a bug](#i-found-a-bug)
-1. [I want to request a feature](#i-want-to-request-a-feature)
+1. [What Does pkgparse Do](#what-does-pkgparse-do)
+1. [How Do You Install It](#how-do-you-install-it)
+1. [How Does It Work](#how-does-it-work)
+    1. [Searching For A Module](#searching-for-a-module)
+    1. [Consuming A Package.json File](#consuming-a-package.json-file)
+    1. [Consuming The package.json of a Remote Module](#consuming-the-package.json-of-a-remote-module)
+    1. [Jump To The NPM Page Of A Module](#jump-to-the-npm-page-of-a-module)
+    1. [Jump To The Github Page Of A Module](#jump-to-the-github-page-of-a-module)
+1. [I Found A Bug](#i-found-a-bug)
+1. [I Want To Request A Feature](#i-want-to-request-a-feature)
 
 ## What Does pkgparse Do
 
@@ -44,11 +44,11 @@ If you're a cool kid using [Yarn](https://yarnpkg.com/) then simply just use yar
 yarn global add pkgparse
 ```
 
-## How Do I Use It
+## How Does It Work
 
 You've got a few options...
 
-### Searching for a module
+### Searching For A Module
 
 You can use the search function to look up an NPM module and retrieve its description field, if it exists.
 
@@ -63,7 +63,7 @@ You can use it by passing it the name of a module. Let's say you keep hearing ab
 ↳ rethinkdbdash => A Node.js driver for RethinkDB with promises and a connection pool
 ```
 
-## Consuming a package.json File
+## Consuming A Package.json File
 
 This is probably my favourite feature and the main reason I started building this tool in the first place.
 
@@ -85,7 +85,7 @@ Here's what it looks like applied to pkgparse itself:
 
 Now you know exactly what each of the four dependencies that make up pkgparse do in less than 5 seconds (excluding reading time and/or internet outages)
 
-### Consuming the package.json of a Remote Module
+### Consuming The Package.json Of A Remote Module
 
 The feast function would be a pain in the butt if you had to clone your favourite modules just to see what they're made of so it also comes with an optional argument for parsing modules on NPM.
 
@@ -106,7 +106,7 @@ Neat, I find this feature useful for learning about new modules myself.
 
 Heck, I could have used that [validate-npm-package-name](https://www.npmjs.com/package/validate-npm-package-name) module in pkgparse itself but ah well, it's fast enough as it is.
 
-### Jump to the NPM Page of a Module
+### Jump To The NPM Page Of A Module
 
 This feature and the next are mainly just handy shortcuts for myself but you might get some use out of them too!
 
@@ -115,7 +115,7 @@ This feature and the next are mainly just handy shortcuts for myself but you mig
 [opens https://www.npmjs.com/package/express in your default browser]
 ```
 
-### Jump to the Github Page of a Module
+### Jump To The Github Page Of A Module
 
 Pretty much the same deal as the open command but goes to GitHub instead...
 
@@ -124,11 +124,11 @@ Pretty much the same deal as the open command but goes to GitHub instead...
 [opens https://github.com/expressjs/express in your default browser]
 ```
 
-## I Found a Bug
+## I Found A Bug
 
 Feel free to report it under the [Issues](https://github.com/marcus-crane/pkgparse/issues) tab, using the bug label, and I'll see what I can figure out.
 
-## I Want to Request a Feature
+## I Want To Request A Feature
 
 Well, it's not really that kind of project but you're welcome to suggest stuff under the [Issues](https://github.com/marcus-crane/pkgparse/issues) by using the enhancement label.
 
