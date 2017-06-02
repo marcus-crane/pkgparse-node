@@ -3,7 +3,7 @@ const prog = require('caporal')
 const parseMenu = require('./lib/parseMenu')
 
 prog
-  .version('2.0.0')
+  .version('2.1.0')
 
   .command('search', 'Get a brief description of what a module does')
   .argument('<module>', 'Module name to look up')
