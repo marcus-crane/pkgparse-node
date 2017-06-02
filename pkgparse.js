@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 const prog = require('caporal')
 const parseMenu = require('./lib/parseMenu')
 
