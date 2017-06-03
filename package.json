@@ -3,6 +3,9 @@
   "version": "2.1.1",
   "description": "A module for searching details about other modules",
   "main": "pkgparse.js",
+  "engines": {
+    "node": ">= 7.7.4"
+  },
   "scripts": {
     "start": "node pkgparse",
     "lint": "standard .",
