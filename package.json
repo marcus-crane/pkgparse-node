@@ -1,6 +1,6 @@
 {
   "name": "pkgparse",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A module for searching details about other modules",
   "main": "pkgparse.js",
   "scripts": {
