@@ -4,7 +4,9 @@
   "description": "A module for searching details about other modules",
   "main": "pkgparse.js",
   "scripts": {
-    "start": "node pkgparse"
+    "start": "node pkgparse",
+    "lint": "eslint .",
+    "test": "npm run lint"
   },
   "bin": {
     "pkgparse": "pkgparse.js"
@@ -23,7 +25,7 @@
     "opn": "^4.0.2"
   },
   "devDependencies": {
-    "eslint": "^3.19.0"
+    "standard": "^10.0.2"
   },
   "bugs": {
     "url": "https://github.com/marcus-crane/pkgparse/issues"
