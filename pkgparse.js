@@ -12,7 +12,7 @@ prog
   })
 
   .command('feast', 'Search applied to an entire package.json or module')
-  .option('--module <name>', 'Provide a dependency name to see what it\'s made from')
+  .option('--module <name>', "Provide a dependency name to see what it's made from")
   .action((args, options) => {
     parseMenu('feast', options)
   })
