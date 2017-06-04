@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node pkgparse",
     "lint": "standard .",
-    "test": "npm run lint"
+    "test": "npm run lint && mocha"
   },
   "bin": {
     "pkgparse": "pkgparse.js"
