@@ -1,67 +1,67 @@
 {
-  "name": "pkgparse",
-  "version": "2.1.1",
-  "description": "A module for searching details about other modules",
-  "main": "pkgparse.js",
-  "preferGlobal": true,
-  "engines": {
-    "node": ">= 7.7.4"
-  },
-  "scripts": {
-    "start": "node pkgparse",
-    "lint": "standard .",
-    "test": "npm run lint && mocha"
-  },
-  "bin": {
-    "pkgparse": "pkgparse.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/marcus-crane/pkgparse.git"
-  },
-  "author": "Marcus <marcus@thingsima.de>",
-  "license": "MIT",
-  "homepage": "https://github.com/marcus-crane/pkgparse#readme",
-  "dependencies": {
-    "axios": "^0.15.3",
-    "caporal": "^0.3.0",
-    "chalk": "^1.1.3",
-    "opn": "^4.0.2"
-  },
-  "devDependencies": {
-    "chai": "^4.0.1",
-    "mocha": "^3.4.2",
-    "standard": "^10.0.2",
-    "test-console": "^1.0.0"
-  },
-  "bugs": {
-    "url": "https://github.com/marcus-crane/pkgparse/issues"
-  },
-  "keywords": [
-    "npm",
-    "cli",
-    "packages",
-    "package",
-    "pkg",
-    "parse",
-    "parser",
-    "parsing",
-    "package.json",
-    "packagejson",
-    "validation",
-    "names",
-    "search",
-    "check",
-    "dependencies",
-    "dependants",
-    "dependency",
-    "open",
-    "dev",
-    "dependencies",
-    "dev",
-    "dependency",
-    "tool",
-    "utility",
-    "helper"
-  ]
+    "name": "pkgparse",
+    "version": "2.1.1",
+    "description": "A module for searching details about other modules",
+    "main": "pkgparse.js",
+    "preferGlobal": true,
+    "engines": {
+        "node": ">= 7.7.4"
+    },
+    "scripts": {
+        "start": "node pkgparse",
+        "lint": "standard .",
+        "test": "npm run lint && mocha"
+    },
+    "bin": {
+        "pkgparse": "pkgparse.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/marcus-crane/pkgparse.git"
+    },
+    "author": "Marcus <marcus@thingsima.de>",
+    "license": "MIT",
+    "homepage": "https://github.com/marcus-crane/pkgparse#readme",
+    "dependencies": {
+        "axios": "^0.15.3",
+        "caporal": "^0.3.0",
+        "chalk": "^1.1.3",
+        "opn": "^4.0.2"
+    },
+    "devDependencies": {
+        "chai": "^4.0.1",
+        "mocha": "^3.4.2",
+        "standard": "^10.0.2",
+        "test-console": "^1.0.0"
+    },
+    "bugs": {
+        "url": "https://github.com/marcus-crane/pkgparse/issues"
+    },
+    "keywords": [
+        "npm",
+        "cli",
+        "packages",
+        "package",
+        "pkg",
+        "parse",
+        "parser",
+        "parsing",
+        "package.json",
+        "packagejson",
+        "validation",
+        "names",
+        "search",
+        "check",
+        "dependencies",
+        "dependants",
+        "dependency",
+        "open",
+        "dev",
+        "dependencies",
+        "dev",
+        "dependency",
+        "tool",
+        "utility",
+        "helper"
+    ]
 }
