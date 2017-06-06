@@ -1,6 +1,6 @@
 const { stdout } = require('test-console')
 const assert = require('assert')
-const { logDescription } = require('../lib/output')
+const { logDescription, logDependency } = require('../lib/output')
 
 describe('output', function () {
   describe('logDescription', function () {
@@ -18,6 +18,32 @@ describe('output', function () {
       logDescription(description)
       inspect.restore()
       assert.deepStrictEqual(`red:${description}\n`, inspect.output[0])
+    })
+
+    it('should output nothing if given an empty string', function () {
+      const inspect = stdout.inspect()
+      const description = ''
+      logDescription(description)
+      inspect.restore()
+      assert.deepStrictEqual([], inspect.output)
+    })
+  })
+
+  describe('logDependency', function () {
+    it('should output green text for a valid dependency', function () {
+      const inspect = stdout.inspect()
+      const dependency = 'Mocha'
+      logDependency(dependency)
+      inspect.restore()
+      assert.deepStrictEqual(`green:${dependency}\n`, inspect.output[0])
+    })
+
+    it('should output nothing if given an empty string', function () {
+      const inspect = stdout.inspect()
+      const dependency = ''
+      logDependency(dependency)
+      inspect.restore()
+      assert.deepStrictEqual([], inspect.output)
     })
   })
 })
