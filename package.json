@@ -27,7 +27,8 @@
   },
   "devDependencies": {
     "mocha": "^3.4.2",
-    "standard": "^10.0.2"
+    "standard": "^10.0.2",
+    "test-console": "^1.0.0"
   },
   "standard": {
     "globals": [
