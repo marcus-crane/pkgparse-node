@@ -1,5 +1,5 @@
 const assert = require('assert')
-const queryNPMRegistry = require('../lib/queryNPMRegistry')
+const queryNPMRegistry = require('../lib/net/queryNPMRegistry')
 
 describe('queryNPMRegistry', function () {
   it('should return a valid object', async function () {
