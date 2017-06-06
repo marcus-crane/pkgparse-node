@@ -17,8 +17,43 @@ describe('parsePackage', function () {
 
     it('should return false if given an empty package', function () {
       let expected = fetchDescription({})
-      console.log(expected)
       assert.deepStrictEqual(expected, false)
+    })
+  })
+
+  describe('fetchDependencies', function () {
+    it('should return dependencies for a package', function () {
+      let pkg = {
+        dependencies: { 'pug': 'are', 'express': 'versions', 'react': 'ignored' }
+      }
+      let expected = fetchDependencies(pkg)
+      assert.deepStrictEqual(expected, ['express', 'pug', 'react'])
+    })
+
+    it('should return devDependencies for a package', function () {
+      let pkg = {
+        devDependencies: { 'mocha': '^1.0.0', 'chai': '^2.3.4', 'standard': '^1.2.3' }
+      }
+      let expected = fetchDependencies(pkg)
+      assert.deepStrictEqual(expected, ['chai', 'mocha', 'standard'])
+    })
+
+    it('should return both types of dependencies sorted alphabetically', function () {
+      let pkg = {
+        dependencies: { 'pug': '^1.0.0', 'react': '^1.0.0', 'express': '^1.0.0' },
+        devDependencies: { 'mocha': '^1.0.0', 'chai': '^1.0.0', 'standard': '^1.0.0' }
+      }
+      let expected = fetchDependencies(pkg)
+      assert.deepStrictEqual(expected, ['chai', 'express', 'mocha', 'pug', 'react', 'standard'])
+    })
+
+    it('should not return duplicate dependencies', function () {
+      let pkg = {
+        dependencies: { 'pug': '^1.0.0', 'enzyme': '^1.0.0', 'react': '^1.0.0' },
+        devDependencies: { 'enzyme': '^1.0.0', 'react': '^1.0.0', 'eslint': '^1.0.0' }
+      }
+      let expected = fetchDependencies(pkg)
+      assert.deepStrictEqual(expected, ['enzyme', 'eslint', 'pug', 'react'])
     })
   })
 })
