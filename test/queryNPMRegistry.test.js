@@ -5,12 +5,12 @@ describe('queryNPMRegistry', function () {
   it('should return a valid object', async function () {
     this.timeout(5000)
     const query = await queryNPMRegistry('mocha')
-    assert.equal(query.name, 'mocha')
+    assert.deepStrictEqual(query.name, 'mocha')
   })
 
   it('should return 404 if the package does not exist', async function () {
     this.timeout(5000)
     const query = await queryNPMRegistry('hdriuhg')
-    assert.equal(query, 404)
+    assert.deepStrictEqual(query, 404)
   })
 })
