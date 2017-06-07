@@ -12,7 +12,7 @@ describe('parsePackage', function () {
     it('should return a string with the package name if missing a description', function () {
       let pkg = { name: 'empty' }
       let expected = fetchDescription(pkg)
-      deepStrictEqual(expected, 'empty has no description')
+      deepStrictEqual(expected, 'No description available.')
     })
   })
 
