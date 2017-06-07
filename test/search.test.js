@@ -4,7 +4,7 @@ const { colour } = require('../lib/output')
 const search = require('../lib/search')
 
 describe('search', function () {
-  it('should receive a valid module name and output its description', async function () {
+  it('should output a description when given a valid module', async function () {
     const inspect = stdout.inspect()
     const moduleName = 'got'
     await search(moduleName)
@@ -12,7 +12,7 @@ describe('search', function () {
     deepStrictEqual(`${colour.green}↳  ${moduleName} => ${colour.white}Simplified HTTP requests\n`, inspect.output[0])
   })
 
-  it('should receive an invalid module name and output an error', async function () {
+  it('should output an error message when given an invalid module', async function () {
     const inspect = stdout.inspect()
     const moduleName = 'uhrsiufe'
     await search(moduleName)
