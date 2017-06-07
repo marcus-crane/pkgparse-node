@@ -1,5 +1,5 @@
 const { stdout } = require('test-console')
-const assert = require('assert')
+const { deepStrictEqual } = require('assert')
 const { logDescription, logDependency } = require('../lib/output')
 
 describe('output', function () {
@@ -9,7 +9,7 @@ describe('output', function () {
       const description = 'This package does a bunch of things'
       logDescription(description)
       inspect.restore()
-      assert.deepStrictEqual(`green:${description}\n`, inspect.output[0])
+      deepStrictEqual(`green:${description}\n`, inspect.output[0])
     })
 
     it('should output red text if a description is not found', function () {
@@ -17,7 +17,7 @@ describe('output', function () {
       const description = 'Express has no description'
       logDescription(description)
       inspect.restore()
-      assert.deepStrictEqual(`red:${description}\n`, inspect.output[0])
+      deepStrictEqual(`red:${description}\n`, inspect.output[0])
     })
 
     it('should output nothing if given an empty string', function () {
@@ -25,7 +25,7 @@ describe('output', function () {
       const description = ''
       logDescription(description)
       inspect.restore()
-      assert.deepStrictEqual([], inspect.output)
+      deepStrictEqual([], inspect.output)
     })
   })
 
@@ -35,7 +35,7 @@ describe('output', function () {
       const dependency = 'Mocha'
       logDependency(dependency)
       inspect.restore()
-      assert.deepStrictEqual(`green:${dependency}\n`, inspect.output[0])
+      deepStrictEqual(`green:${dependency}\n`, inspect.output[0])
     })
 
     it('should output nothing if given an empty string', function () {
@@ -43,7 +43,7 @@ describe('output', function () {
       const dependency = ''
       logDependency(dependency)
       inspect.restore()
-      assert.deepStrictEqual([], inspect.output)
+      deepStrictEqual([], inspect.output)
     })
   })
 })
