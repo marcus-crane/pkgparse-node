@@ -11,4 +11,17 @@ describe('feast', function () {
     inspect.restore()
     deepStrictEqual(`${colour.green}↳  mocha => ${colour.white}simple, flexible, fun test framework\n`, inspect.output[0])
   })
+
+  it('should output ALL the dependencies of a module', async function () {
+    const inspect = stdout.inspect()
+    const moduleName = ''
+  })
+
+  it('should output an error message if the module does not exist', async function () {
+    const inspect = stdout.inspect()
+    const moduleName = 'frumpywatermelon'
+    await feast(moduleName)
+    inspect.restore()
+    deepStrictEqual(`${colour.red}✘  ${moduleName} ${colour.white}does not exist?!\n`, inspect.output[0])
+  })
 })
