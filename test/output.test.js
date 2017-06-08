@@ -20,14 +20,4 @@ describe('output', function () {
       deepStrictEqual(`${colour.red}↳  fakepackage => ${colour.white}${description}\n`, inspect.output[0])
     })
   })
-
-  describe('logDependency', function () {
-    it('should output with green text for a valid dependency', function () {
-      const inspect = stdout.inspect()
-      const dependency = 'Mocha'
-      logDependency(dependency)
-      inspect.restore()
-      deepStrictEqual(`green:${dependency}\n`, inspect.output[0])
-    })
-  })
 })
