@@ -1,5 +1,5 @@
 const { deepStrictEqual } = require('assert')
-const { fetchDescription, fetchDependencies } = require('../lib/parsePackage')
+const { fetchDescription, fetchDependencies, fetchNPMDependencies } = require('../lib/parsePackage')
 
 describe('parsePackage', function () {
   describe('fetchDescription', function () {
@@ -54,6 +54,24 @@ describe('parsePackage', function () {
       }
       let expected = fetchDependencies(pkg)
       deepStrictEqual(expected, ['enzyme', 'eslint', 'pug', 'react'])
+    })
+  })
+
+  describe('fetchNPMDependencies', function () {
+    it('should parse a NPM Registry package and provide dependencies of the latest version', function () {
+      let pkg = {
+        'dist-tags': { 'latest': '1.2.3', 'next-gen-poop': '2.3.4' },
+        'versions': {
+          '1.2.3': {
+            'name': 'npmrock',
+            'description': 'Virtual pet rock',
+            'dependencies': { 'sitting': '^1.2.3', 'standing': '^3.4.5' },
+            'devDependencies': { 'fetchpulse': '^6.7.8' }
+          }
+        }
+      }
+      let expected = fetchNPMDependencies(pkg)
+      deepStrictEqual(expected, ['fetchpulse', 'sitting', 'standing'])
     })
   })
 })
