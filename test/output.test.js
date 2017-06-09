@@ -44,7 +44,7 @@ describe('output', function () {
       const inspect = stdout.inspect()
       logTypes('@types/mocha')
       inspect.restore()
-      deepStrictEqual(`${colour.blue}✱  mocha${colour.white} is a part of the Typescript bindings family. It lives over at https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/mocha\n`, inspect.output[0])
+      deepStrictEqual(`${colour.blue}✱  @types/mocha${colour.white} is a part of the Typescript bindings family. It lives over at https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/mocha\n`, inspect.output[0])
     })
   })
 })
