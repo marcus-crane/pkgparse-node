@@ -38,4 +38,13 @@ describe('output', function () {
       deepStrictEqual(`${colour.pink}❤  pkgparse is what you're using right now and I want to say thanks for being a user!\n`, inspect.output[0])
     })
   })
+
+  describe('logTypes', function () {
+    it('should output with blue text when given a scoped @types module', function () {
+      const inspect = stdout.inspect()
+      logTypes('@types/mocha')
+      inspect.restore()
+      deepStrictEqual(`${colour.blue}✱  mocha${colour.white} is a part of the Typescript bindings family. It lives over at https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/mocha\n`, inspect.output[0])
+    })
+  })
 })
