@@ -1,6 +1,6 @@
 const { stdout } = require('test-console')
 const { deepStrictEqual } = require('assert')
-const { colour, logDescription, logDependency } = require('../lib/output')
+const { colour, logDescription } = require('../lib/output')
 
 describe('output', function () {
   describe('logDescription', function () {
@@ -9,7 +9,7 @@ describe('output', function () {
       const description = 'This package does a bunch of things'
       logDescription('FaKePaCkAgE', description)
       inspect.restore()
-      deepStrictEqual(`${colour.green}↳  fakepackage =>${colour.white} ${description}\n`, inspect.output[0])
+      deepStrictEqual(`${colour.green}‣  fakepackage =>${colour.white} ${description}\n`, inspect.output[0])
     })
 
     it('should output with red text if a description is not found', function () {
@@ -17,7 +17,7 @@ describe('output', function () {
       const description = 'No description available.'
       logDescription('FAKEPACKAGE', description)
       inspect.restore()
-      deepStrictEqual(`${colour.red}↳  fakepackage =>${colour.white} ${description}\n`, inspect.output[0])
+      deepStrictEqual(`${colour.red}?? fakepackage =>${colour.white} ${description}\n`, inspect.output[0])
     })
   })
 })

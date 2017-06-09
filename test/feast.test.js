@@ -9,7 +9,7 @@ describe('feast', function () {
     const moduleName = 'uuid'
     await feast(moduleName)
     inspect.restore()
-    deepStrictEqual(`${colour.green}↳  mocha =>${colour.white} simple, flexible, fun test framework\n`, inspect.output[0])
+    deepStrictEqual(`${colour.green}‣  mocha =>${colour.white} simple, flexible, fun test framework\n`, inspect.output[0])
   })
 
   it('should output an error message if the module does not exist', async function () {
