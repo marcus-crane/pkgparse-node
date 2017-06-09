@@ -12,11 +12,6 @@ describe('feast', function () {
     deepStrictEqual(`${colour.green}↳  mocha => ${colour.white}simple, flexible, fun test framework\n`, inspect.output[0])
   })
 
-  it('should output ALL the dependencies of a module', async function () {
-    const inspect = stdout.inspect()
-    const moduleName = ''
-  })
-
   it('should output an error message if the module does not exist', async function () {
     const inspect = stdout.inspect()
     const moduleName = 'frumpywatermelon'
