@@ -32,10 +32,10 @@ describe('search', function () {
     deepStrictEqual(`${colour.blue}✱  @types/react${colour.white} is a part of the Typescript bindings family. It lives over at https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react\n`, inspect.output[0])
   })
 
-  it('should output a sneaky little easter egg when run on pkgparse itself', async function () {
-    const inspect = stdout.inspect()
-    await search('pkgparse')
-    inspect.restore()
-    deepStrictEqual(`${colour.pink}❤  pkgparse is what you're using right now and I want to say thanks for being a user!\n`, inspect.output[0])
-  })
+  // it('should output a sneaky little easter egg when run on pkgparse itself', async function () {
+  //   const inspect = stdout.inspect()
+  //   await search('pkgparse')
+  //   inspect.restore()
+  //   deepStrictEqual(`${colour.pink}❤  pkgparse is what you're using right now and I want to say thanks for being a user!\n`, inspect.output[0])
+  // })
 })

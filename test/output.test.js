@@ -1,6 +1,6 @@
 const { stdout } = require('test-console')
 const { deepStrictEqual } = require('assert')
-const { colour, logDescription, log404, logThanks, logTypes } = require('../lib/output')
+const { colour, logDescription, log404, logSurprise, logTypes } = require('../lib/output')
 
 describe('output', function () {
   describe('logDescription', function () {
@@ -27,6 +27,15 @@ describe('output', function () {
       log404('TwitchForDogs')
       inspect.restore()
       deepStrictEqual(`${colour.red}✘  TwitchForDogs${colour.white} does not exist?!\n`, inspect.output[0])
+    })
+  })
+
+  describe('logSurprise', function () {
+    it('should output with pink text when given certain module names', function () {
+      const inspect = stdout.inspect()
+      logSurprise('pkgparse')
+      inspect.restore()
+      deepStrictEqual(`${colour.pink}❤  pkgparse is what you're using right now and I want to say thanks for being a user!\n`, inspect.output[0])
     })
   })
 })
