@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const prog = require('caporal')
 const search = require('./lib/search')
-const feast = require('./lib/feast')
+const fetch = require('./lib/fetch')
 
 prog
   .version('3.0.0')
@@ -12,10 +12,15 @@ prog
     search(args.module)
   })
 
-  .command('feast', 'Fetch the contents of a module on NPM')
+  .command('scan', 'Scan the package.json in the current directory')
+  .action((args, options) => {
+    scan(args.module)
+  })
+
+  .command('fetch', 'Fetch the package.json for an NPM module')
   .argument('<module>', 'Module to look up')
   .action((args, options) => {
-    feast(args.module)
+    fetch(args.module)
   })
 
 prog.parse(process.argv)
