@@ -2,6 +2,7 @@
 const prog = require('caporal')
 const search = require('./lib/search')
 const fetch = require('./lib/fetch')
+const scan = require('./lib/scan')
 
 prog
   .version('3.0.0')
@@ -14,7 +15,7 @@ prog
 
   .command('scan', 'Scan the package.json in the current directory')
   .action((args, options) => {
-    scan(args.module)
+    scan(process.cwd())
   })
 
   .command('fetch', 'Fetch the package.json for an NPM module')
