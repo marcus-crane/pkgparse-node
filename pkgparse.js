@@ -1,32 +1,27 @@
 #!/usr/bin/env node
 const prog = require('caporal')
-const parseMenu = require('./lib/parseMenu')
+const search = require('./lib/search')
+const fetch = require('./lib/fetch')
+const scan = require('./lib/scan')
 
 prog
-  .version('2.1.0')
+  .version('3.0.0')
 
   .command('search', 'Get a brief description of what a module does')
   .argument('<module>', 'Module name to look up')
   .action((args, options) => {
-    parseMenu('search', args)
+    search(args.module)
   })
 
-  .command('feast', 'Search applied to an entire package.json or module')
-  .option('--module <name>', "Provide a dependency name to see what it's made from")
+  .command('scan', 'Scan the package.json in the current directory')
   .action((args, options) => {
-    parseMenu('feast', options)
+    scan(process.cwd())
   })
 
-  .command('open', 'Go straight to the NPM page for a module')
-  .argument('<module>', 'The name of the module to navigate to')
+  .command('fetch', 'Fetch the package.json for an NPM module')
+  .argument('<module>', 'Module to look up')
   .action((args, options) => {
-    parseMenu('open', args)
-  })
-
-  .command('gh', 'Go straight to the Github page for a module')
-  .argument('<module>', 'The name of the module to visit on Github')
-  .action((args, options) => {
-    parseMenu('github', args)
+    fetch(args.module)
   })
 
 prog.parse(process.argv)
