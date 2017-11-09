@@ -25,7 +25,7 @@ Let's say you're browsing an article and it mentions React. Whoa, what's that yo
 
 ### Search
 
-```shell
+```
 pkgparse search react
 
 // Output
@@ -40,7 +40,7 @@ Whoa, isn't that useful? Honestly, it's a pretty simple project on a technical l
 
 If your terminal is currently sitting in a directory that contains a package.json, you can run `pkgparse scan` to 
 
-```shell
+```
 pkgparse scan
 
 // Output
@@ -57,7 +57,7 @@ Now you know not only what modules `pkgparse` uses but also what they're used fo
 
 The last feature is essentially the scan feature except it scans any package on NPM rather than one stored locally on your hard drive.
 
-```shell
+```
 pkgparse fetch chalk
 
 // Output
